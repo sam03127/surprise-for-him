@@ -1,0 +1,189 @@
+.intro {
+  min-height: 100vh;
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  padding: 2rem 1.25rem;
+  text-align: center;
+  position: relative;
+  z-index: 2;
+}
+.lines {
+  min-height: 7rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 0.4rem;
+}
+.line {
+  margin: 0;
+  font-family: 'Great Vibes', cursive;
+  color: #ffe4ec;
+  animation: rise 1.2s ease forwards;
+}
+.current {
+  font-size: clamp(2rem, 7vw, 3.4rem);
+  text-shadow: 0 0 20px rgba(255, 105, 150, 0.7);
+}
+.past {
+  font-size: clamp(1.1rem, 3.5vw, 1.5rem);
+  opacity: 0.55;
+}
+@keyframes rise {
+  from { opacity: 0; transform: translateY(16px); filter: blur(6px); }
+  to { filter: blur(0); }
+}
+.gift {
+  position: relative;
+  width: min(62vw, 240px);
+  aspect-ratio: 1;
+  border: 0;
+  background: none;
+  cursor: pointer;
+  opacity: 0;
+  transform: scale(0.6);
+  transition: opacity 1s ease, transform 1s cubic-bezier(0.34, 1.56, 0.64, 1);
+  -webkit-tap-highlight-color: transparent;
+}
+.giftReady {
+  opacity: 1;
+  transform: scale(1);
+  animation: wiggle 2.4s ease-in-out 1s infinite;
+}
+@keyframes wiggle {
+  0%, 80%, 100% { rotate: 0deg; }
+  84% { rotate: -6deg; }
+  88% { rotate: 6deg; }
+  92% { rotate: -4deg; }
+  96% { rotate: 3deg; }
+}
+.glow {
+  position: absolute;
+  inset: -20%;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255, 120, 160, 0.55), transparent 65%);
+  animation: pulse 2.2s ease-in-out infinite;
+}
+@keyframes pulse {
+  50% { transform: scale(1.15); opacity: 0.7; }
+}
+.box {
+  position: absolute;
+  left: 15%;
+  right: 15%;
+  bottom: 8%;
+  top: 30%;
+}
+.base {
+  position: absolute;
+  inset: 22% 4% 0;
+  border-radius: 8px;
+  background:
+    linear-gradient(90deg, transparent 43%, #ffd27a 43%, #ffd27a 57%, transparent 57%),
+    linear-gradient(160deg, #e91e63, #9c0f3f);
+  box-shadow: 0 18px 40px rgba(120, 0, 40, 0.55), inset 0 -10px 20px rgba(0, 0, 0, 0.2);
+}
+.lid {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  height: 28%;
+  border-radius: 8px;
+  background:
+    linear-gradient(90deg, transparent 43%, #ffe3a3 43%, #ffe3a3 57%, transparent 57%),
+    linear-gradient(160deg, #ff4f8b, #c2185b);
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.25);
+  z-index: 2;
+  transition: transform 1s cubic-bezier(0.6, -0.3, 0.4, 1.4), opacity 1s;
+}
+.bow {
+  position: absolute;
+  left: 50%;
+  top: -42%;
+  width: 46%;
+  height: 70%;
+  transform: translateX(-50%);
+}
+.bow::before,
+.bow::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  width: 50%;
+  height: 100%;
+  border: 6px solid #ffd27a;
+  border-radius: 50% 50% 10% 50%;
+}
+.bow::before { left: 0; transform: rotate(-20deg); }
+.bow::after { right: 0; transform: rotate(20deg) scaleX(-1); }
+.bloom {
+  position: absolute;
+  inset: -10%;
+  width: 120%;
+  height: 120%;
+  object-fit: contain;
+  -webkit-mask-image: radial-gradient(circle, #000 55%, transparent 71%);
+  mask-image: radial-gradient(circle, #000 55%, transparent 71%);
+  opacity: 0;
+  transform: scale(0.1) rotate(-30deg);
+  pointer-events: none;
+}
+.opening .lid {
+  transform: translate(40%, -180%) rotate(35deg);
+  opacity: 0;
+}
+.opening .base {
+  transition: opacity 0.8s 0.6s, transform 0.8s 0.6s;
+  opacity: 0;
+  transform: scale(0.8) translateY(20px);
+}
+.opening .bloom {
+  animation: bloom 2.2s 0.5s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+.opening .gift { animation: none; }
+@keyframes bloom {
+  0% { opacity: 0; transform: scale(0.1) rotate(-30deg); }
+  60% { opacity: 1; transform: scale(1.15) rotate(4deg); }
+  100% { opacity: 1; transform: scale(1.4) rotate(0); }
+}
+.opening .lines {
+  transition: opacity 0.8s;
+  opacity: 0;
+}
+.hint {
+  margin: 0;
+  color: #ffc2d4;
+  font-size: 0.95rem;
+  letter-spacing: 0.04em;
+  opacity: 0;
+  transition: opacity 1s 0.6s;
+}
+.hintVisible {
+  opacity: 1;
+  animation: breathe 2s ease-in-out infinite;
+}
+@keyframes breathe {
+  50% { opacity: 0.5; }
+}
+.burst {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  pointer-events: none;
+}
+.burst span {
+  position: absolute;
+  color: #ff4f8b;
+  font-size: 1.4rem;
+  animation: fly 1.6s 0.4s ease-out forwards;
+  opacity: 0;
+}
+@keyframes fly {
+  0% { opacity: 1; transform: rotate(var(--a)) translateY(0) scale(0.4); }
+  100% { opacity: 0; transform: rotate(var(--a)) translateY(-45vmin) scale(1.3); }
+}

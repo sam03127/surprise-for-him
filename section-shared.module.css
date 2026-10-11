@@ -1,0 +1,56 @@
+/* Shared section typography (composed into section CSS modules). */
+.section {
+  position: relative;
+  z-index: 2;
+  min-height: 100vh;
+  min-height: 100dvh;
+  padding: 4rem 1.25rem 3rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  box-sizing: border-box;
+  animation: enter 1.2s ease both;
+}
+@keyframes enter {
+  from { opacity: 0; transform: translateY(30px); }
+}
+.kicker {
+  margin: 0;
+  text-transform: uppercase;
+  letter-spacing: 0.3em;
+  font-size: 0.75rem;
+  color: #ff9fbd;
+}
+.title {
+  margin: 0.4rem 0 0.3rem;
+  font-family: 'Great Vibes', cursive;
+  font-weight: 400;
+  font-size: clamp(2.4rem, 8vw, 4rem);
+  color: #fff0f5;
+  text-shadow: 0 0 24px rgba(255, 90, 140, 0.6);
+}
+.sub {
+  margin: 0 0 1.5rem;
+  color: #ffc2d4;
+  font-size: 0.95rem;
+}
+.next {
+  margin-top: 2.5rem;
+  min-height: 48px;
+  padding: 0.9rem 1.8rem;
+  border: 1px solid rgba(255, 210, 225, 0.6);
+  border-radius: 999px;
+  background: linear-gradient(135deg, #ff4f8b, #c2185b);
+  color: #fff;
+  font: inherit;
+  font-size: 1rem;
+  letter-spacing: 0.02em;
+  cursor: pointer;
+  box-shadow: 0 10px 30px rgba(194, 24, 91, 0.5);
+  transition: transform 0.25s, box-shadow 0.25s;
+}
+.next:hover {
+  transform: translateY(-2px) scale(1.03);
+  box-shadow: 0 14px 36px rgba(255, 79, 139, 0.6);
+}

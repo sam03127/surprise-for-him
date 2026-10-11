@@ -1,0 +1,63 @@
+@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Caveat:wght@500;700&family=Poppins:wght@300;400;500&display=swap');
+
+:global(body) {
+  margin: 0;
+  background: #12040a;
+}
+.app {
+  position: relative;
+  min-height: 100vh;
+  min-height: 100dvh;
+  overflow-x: hidden;
+  font-family: 'Poppins', system-ui, sans-serif;
+  color: #ffe4ec;
+  background:
+    radial-gradient(ellipse at 50% 0%, #4a0d24 0%, transparent 60%),
+    radial-gradient(ellipse at 100% 100%, #3b0820 0%, transparent 55%),
+    linear-gradient(180deg, #1c0610, #12040a);
+}
+.aurora {
+  position: fixed;
+  inset: -20%;
+  z-index: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(circle at 20% 30%, rgba(255, 79, 139, 0.18), transparent 35%),
+    radial-gradient(circle at 80% 60%, rgba(194, 24, 91, 0.2), transparent 40%),
+    radial-gradient(circle at 50% 90%, rgba(255, 160, 120, 0.1), transparent 35%);
+  filter: blur(40px);
+  animation: drift 18s ease-in-out infinite alternate;
+}
+@keyframes drift {
+  to { transform: translate(4%, -3%) rotate(8deg) scale(1.1); }
+}
+.stage {
+  position: relative;
+  z-index: 2;
+}
+.progress {
+  position: fixed;
+  top: 0.8rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 30;
+  display: flex;
+  gap: 0.15rem;
+  padding: 0.15rem 0.6rem;
+  border-radius: 999px;
+  background: rgba(30, 5, 15, 0.55);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 180, 205, 0.2);
+}
+.dot,
+.dotOn {
+  width: 36px;
+  height: 36px;
+  border: 0;
+  background: none;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: color 0.4s, transform 0.4s;
+}
+.dot { color: rgba(255, 200, 215, 0.3); }
+.dotOn { color: #ff4f8b; transform: scale(1.15); text-shadow: 0 0 10px rgba(255, 79, 139, 0.8); }

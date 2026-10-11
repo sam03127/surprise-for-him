@@ -1,0 +1,46 @@
+.layer {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 1;
+}
+.petal {
+  position: absolute;
+  top: -40px;
+  border-radius: 150% 0 150% 0;
+  opacity: 0.85;
+  animation-name: fall;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  filter: drop-shadow(0 2px 3px rgba(80, 0, 20, 0.3));
+}
+.red {
+  background: radial-gradient(circle at 30% 30%, #ff6b81, #b3001b 70%);
+}
+.pink {
+  background: radial-gradient(circle at 30% 30%, #ffd1dc, #f06292 75%);
+}
+@keyframes fall {
+  0% { transform: translate(0, -5vh) rotate(0deg); }
+  25% { transform: translate(var(--sway), 25vh) rotate(90deg); }
+  50% { transform: translate(calc(var(--sway) * -1), 55vh) rotate(200deg); }
+  75% { transform: translate(var(--sway), 80vh) rotate(290deg); }
+  100% { transform: translate(0, 110vh) rotate(360deg); }
+}
+.sparkle {
+  position: absolute;
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+  background: #ffe9a8;
+  box-shadow: 0 0 8px 2px rgba(255, 220, 140, 0.8);
+  animation: twinkle 3s ease-in-out infinite;
+}
+@keyframes twinkle {
+  0%, 100% { opacity: 0; transform: scale(0.4); }
+  50% { opacity: 1; transform: scale(1.2); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .petal, .sparkle { animation: none; display: none; }
+}

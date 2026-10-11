@@ -1,0 +1,59 @@
+.media {
+  position: fixed;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+  pointer-events: none;
+  left: -10px;
+  top: -10px;
+}
+.toggle {
+  position: fixed;
+  right: 1rem;
+  bottom: 1rem;
+  z-index: 30;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+  background: none;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5), 0 0 0 2px rgba(255, 143, 177, 0.5);
+}
+.disc {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  color: #fff;
+  font-size: 0.9rem;
+  background:
+    radial-gradient(circle, #ff4f8b 0 22%, #1a0710 23% 26%, transparent 27%),
+    repeating-radial-gradient(circle, #2a0d18 0 2px, #1a0710 2px 4px);
+}
+.spinning .disc { animation: spin 4s linear infinite; }
+@keyframes spin { to { transform: rotate(360deg); } }
+.bars {
+  position: absolute;
+  top: -22px;
+  left: 50%;
+  display: flex;
+  align-items: flex-end;
+  gap: 3px;
+  height: 14px;
+  transform: translateX(-50%);
+}
+.bars i {
+  width: 3px;
+  height: 14px;
+  background: #ff8fb1;
+  border-radius: 2px;
+  transform-origin: bottom;
+  animation: eq 0.9s ease-in-out infinite;
+}
+.bars i:nth-child(2) { animation-delay: 0.2s; }
+.bars i:nth-child(3) { animation-delay: 0.4s; }
+@keyframes eq { 50% { transform: scaleY(0.3); } }
